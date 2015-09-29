@@ -65,8 +65,9 @@ public class GitAddCommand
 
         File workingDirectory = fileSet.getBasedir();
         String workingDirectoryPath = workingDirectory.getAbsolutePath();
-        workingDirectoryPath = workingDirectoryPath.substring(workingDirectoryPath.lastIndexOf(".checkout/") + 1);
-        System.out.println(workingDirectoryPath);
+        String separator = ".checkout/";
+        workingDirectoryPath = workingDirectoryPath.substring( workingDirectoryPath.lastIndexOf(separator) + separator.length() + 1 );
+        System.out.println( workingDirectoryPath );
 
         AddScmResult result = executeAddFileSet( fileSet );
 
